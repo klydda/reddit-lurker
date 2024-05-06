@@ -3,7 +3,7 @@
     gap: 1rem;
 
     grid-template-rows: [header] 4rem [content] auto;
-    grid-template-columns: auto minmax(100px, 1fr) auto;
+    grid-template-columns: 1fr minmax(1fr, 10fr) 1fr;
     grid-template-areas:
         "header header header"
         "leftmargin main rightmargin";
