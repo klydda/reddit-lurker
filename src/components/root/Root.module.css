@@ -3,6 +3,7 @@
     background-color: #C8E2D5;
 
     display: grid;
+    gap: 1rem;
     grid-template-columns: 1fr 2fr 1fr;
     grid-template-rows: 4rem;
     grid-template-areas: "logo search .";
@@ -37,9 +38,10 @@
     grid-area: logo;
     display: flex;
     height: 70%;
-    width: 4rem;
+    width: 12rem;
     align-self: center;
     align-items: center;
+    justify-self: center;
 
 }
 
@@ -61,10 +63,14 @@
     width: auto;
     object-fit: contain;
 
-    margin-left: 2rem;
+    margin-left: 1rem;
 }
 
 @media only screen and (max-width: 800px) {
+    .logo {
+        width: 8rem;
+    }
+
     .outerSpan {
         display: none;
     }
@@ -74,13 +80,10 @@
     }
 }
 
-@media only screen and (max-width: 530px) {
-    .logoPepe {
-        margin-left: 1rem;
-    }
-}
-
 @media only screen and (max-width: 460px) {
+    .logo {
+        width: 4rem;
+    }
     .innerSpan {
         display: none;
     }
