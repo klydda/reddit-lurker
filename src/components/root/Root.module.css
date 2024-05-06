@@ -4,7 +4,7 @@
 
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
-    grid-template-rows: 3rem;
+    grid-template-rows: 4rem;
     grid-template-areas: "logo search .";
 
     box-shadow: 0px 10px 50px #B5D1C3;
@@ -26,11 +26,11 @@
 
 .input {
     border: none;
-    height: 1.5rem;
+    height: 2rem;
     text-indent: 0.5rem;
     width: 100%;
     border-radius: 0.5rem;
-    background-color: #F9F9F9;
+    background-color: #f9f9f9de;
 }
 
 .logo {
@@ -46,8 +46,16 @@
 .logo span {
     font-size: 1.2rem;
     font-weight: 600;
+}
+
+.outerSpan {
     margin-left: 0.5rem;
 }
+
+.innerSpan {
+    color: #4D7939;
+}
+
 .logoPepe {
     height: 100%;
     width: auto;
@@ -56,13 +64,24 @@
     margin-left: 2rem;
 }
 
-@media only screen and (max-width: 520px) {
-    .logo span {
+@media only screen and (max-width: 800px) {
+    .outerSpan {
         display: none;
     }
 
+    .innerSpan {
+        color: black;
+    }
+}
+
+@media only screen and (max-width: 530px) {
     .logoPepe {
         margin-left: 1rem;
     }
+}
 
+@media only screen and (max-width: 460px) {
+    .innerSpan {
+        display: none;
+    }
 }

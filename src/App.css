@@ -2,7 +2,7 @@
     display: grid;
     gap: 1rem;
 
-    grid-template-rows: [header] 3rem [content] auto;
+    grid-template-rows: [header] 4rem [content] auto;
     grid-template-columns: auto minmax(100px, 1fr) auto;
     grid-template-areas:
         "header header header"

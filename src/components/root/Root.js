@@ -7,7 +7,7 @@ function Root() {
         <header className={styles.header}>
             <div className={styles.logo}>
                     <img src={pepe} className={styles.logoPepe}/>
-                    <span>Lurker</span>
+                    <span className={styles.outerSpan}>Reddit</span> <span className={styles.innerSpan}>Lurker</span>
             </div>
             
             <div className={styles.search}>
