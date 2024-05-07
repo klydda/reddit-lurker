@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Root.module.css';
 import pepe from './peeping-pepe.png';
-import { Outlet } from 'react-router-dom';
+import { Outlet, Link } from 'react-router-dom';
 
 function Root() {
     return (
@@ -21,6 +21,10 @@ function Root() {
                             placeholder='Search'
                         />
                     </form>
+                </div>
+
+                <div className={styles.subreddit}>
+                    <Link to="r/image">Click here</Link>
                 </div>
 
             </header>
