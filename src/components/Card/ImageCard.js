@@ -5,7 +5,6 @@ import { faComment } from '@fortawesome/free-regular-svg-icons';
 import { faChevronUp, faChevronDown} from '@fortawesome/free-solid-svg-icons';
 
 function ImageCard({value}){
-    console.log('ImageCard ' + value);
     return (
         <div className={styles.container}>
         <div className={styles.karma}>
