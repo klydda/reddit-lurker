@@ -7,10 +7,10 @@ function Root() {
     return (
         <>
             <header className={styles.header}>
-                <div className={styles.logo}>
+                <Link to='/' className={styles.logo}>
                         <img src={pepe} className={styles.logoPepe}/>
                         <span className={styles.outerSpan}>Reddit</span> <span className={styles.innerSpan}>Lurker</span>
-                </div>
+                </Link>
                 
                 <div className={styles.search}>
                     <form className={styles.form}>
@@ -24,7 +24,7 @@ function Root() {
                 </div>
 
                 <div className={styles.subreddit}>
-                    <Link to="r/image">Click here</Link>
+                    <Link to="r/image">Only Images</Link>
                 </div>
 
             </header>
