@@ -23,8 +23,9 @@ function Root() {
                     </form>
                 </div>
 
-                <div className={styles.subreddit}>
-                    <Link to="r/image">Only Images</Link>
+                <div className={styles.filter}>
+                    <button><Link to="/?filter=image">Images</Link></button>
+                    <button><Link to="/?filter=text">Text</Link></button> 
                 </div>
 
             </header>
