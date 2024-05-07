@@ -20,7 +20,6 @@ const image = {
     title: 'This is a title',
     karma: 128,
     image: horizontalSunset,
-    video: movieSunset,
     poster: 'ZenZambooni',
     comments: 12,
     time: '2024-05-02 20:14'
