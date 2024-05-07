@@ -1,11 +1,29 @@
 .App {
     display: grid;
-    gap: 1rem;
+    gap: 1.5rem;
 
     grid-template-rows: [header] 4rem [content] auto;
-    grid-template-columns: auto minmax(100px, 1fr) auto;
+    grid-template-columns: 15% 1fr 15%;
     grid-template-areas:
         "header header header"
         "leftmargin main rightmargin";
+}
+
+@media only screen and (max-width: 1200px){
+    .App {
+        grid-template-columns: 10% 1fr 10%;
+    }
+}
+
+@media only screen and (max-width: 800px){
+    .App {
+        grid-template-columns: 5% 1fr 5%;
+    }
+}
+
+@media only screen and (max-width: 460px){
+    .App {
+        grid-template-columns: 1% 1fr 1%;
+    }
 }
 

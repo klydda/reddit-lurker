@@ -1,0 +1,82 @@
+.container {
+    display: grid;
+    gap: 0.4rem 1rem;
+    grid-template-columns: 4rem minmax(100px, 1fr) ;
+    grid-template-rows: 1.5rem auto 1.5rem;
+    grid-template-areas: 
+        "karma title"
+        "karma content"
+        "comments poster";
+
+
+    border-radius: 0.5rem;
+    box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.25);
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background-color: #FCFEFD;
+}
+
+.container:hover {
+    box-shadow: 2px 5px 5px rgba(0, 0, 0, 0.25);
+
+}
+
+h2 {
+    margin: 0;
+    padding: 0;
+    font-size: 1.2rem;
+}
+
+p {
+    margin: 0;
+}
+
+.karma {
+    grid-area: karma;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.title {
+    grid-area: title;
+}
+
+.content {
+    grid-area: content;
+}
+
+.comments {
+    grid-area: comments;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 0.8rem;
+}
+
+.poster {
+    grid-area: poster;
+
+    display: flex;
+    align-items: center;
+    font-size: 0.8rem;
+    color: #3D3D3D;
+    font-style: italic;
+}
+
+.smallSpace {
+    margin-left: 0.2rem;
+}
+
+.imageContainer {
+    margin-right: 1rem;
+}
+
+.image {
+    width: 100%;
+    height: auto;
+}
