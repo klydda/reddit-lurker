@@ -4,6 +4,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faComment } from '@fortawesome/free-regular-svg-icons';
 import { faChevronUp, faChevronDown} from '@fortawesome/free-solid-svg-icons';
 import horizontalSunset from './horizontal-sunset.jpg';
+import TextCard from './TextCard';
+import ImageCard from './ImageCard';
 
 const data = {
     type: 'text',
@@ -25,62 +27,19 @@ const image = {
     time: '2024-05-02 20:14'
 }
 
-function Card() {
-    const random = Math.random();
-    if (random > 0.5){
-        console.log(`Post card, random int: ${random}`);
-        return (
-            <div className={styles.container}>
-                <div className={styles.karma}>
-                    <FontAwesomeIcon icon={faChevronUp} />
-                    <span>{data.karma}</span>
-                    <FontAwesomeIcon icon={faChevronDown} />
-                </div>
-                <h2 className={styles.title}>{data.title}</h2>
-    
-                <div className={styles.content}>
-                    <p>{data.content}</p>
-                </div>
-    
-                <div className={styles.comments}>
-                    <FontAwesomeIcon icon={faComment} />    
-                    <span className={styles.smallSpace}>{data.comments}</span>
-                </div>
-    
-                <div className={styles.poster}>
-                    <span>{data.poster} - </span>
-                    <span>{data.time}</span>
-                </div>
-                
-            </div>
-        );
-    } else {
-        console.log(`Image card, random int: ${random}`);
-        return (
-            <div className={styles.container}>
-            <div className={styles.karma}>
-                <FontAwesomeIcon icon={faChevronUp} />
-                <span>{image.karma}</span>
-                <FontAwesomeIcon icon={faChevronDown} />
-            </div>
-            <h2 className={styles.title}>{image.title}</h2>
 
-            <div className={styles.imageContainer}>
-                <img src={image.image} className={styles.image}/>
-            </div>
 
-            <div className={styles.comments}>
-                <FontAwesomeIcon icon={faComment} />    
-                <span className={styles.smallSpace}>{image.comments}</span>
-            </div>
-
-            <div className={styles.poster}>
-                <span>{image.poster} - </span>
-                <span>{image.time}</span>
-            </div>
-            
-        </div>
-        );
+function Card({ value }) {
+    console.log('Card ' + value);
+    switch (value.type) {
+        case 'text':
+            return(
+                <TextCard value={value} />
+            );
+        case 'image':
+            return (
+                <ImageCard value={value} />
+            );
     }
 }
 
