@@ -3,6 +3,7 @@ import styles from './Card.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faComment } from '@fortawesome/free-regular-svg-icons';
 import { faChevronUp, faChevronDown} from '@fortawesome/free-solid-svg-icons';
+import horizontalSunset from './horizontal-sunset.jpg';
 
 const data = {
     type: 'text',
@@ -14,32 +15,74 @@ const data = {
     time: "2024-05-06 22:30"
 }
 
+const image = {
+    type: 'image',
+    title: 'This is a title',
+    karma: 128,
+    image: horizontalSunset,
+    video: movieSunset,
+    poster: 'ZenZambooni',
+    comments: 12,
+    time: '2024-05-02 20:14'
+}
+
 function Card() {
-    return (
-        <div className={styles.container}>
+    const random = Math.random();
+    if (random > 0.5){
+        console.log(`Post card, random int: ${random}`);
+        return (
+            <div className={styles.container}>
+                <div className={styles.karma}>
+                    <FontAwesomeIcon icon={faChevronUp} />
+                    <span>{data.karma}</span>
+                    <FontAwesomeIcon icon={faChevronDown} />
+                </div>
+                <h2 className={styles.title}>{data.title}</h2>
+    
+                <div className={styles.content}>
+                    <p>{data.content}</p>
+                </div>
+    
+                <div className={styles.comments}>
+                    <FontAwesomeIcon icon={faComment} />    
+                    <span className={styles.smallSpace}>{data.comments}</span>
+                </div>
+    
+                <div className={styles.poster}>
+                    <span>{data.poster} - </span>
+                    <span>{data.time}</span>
+                </div>
+                
+            </div>
+        );
+    } else {
+        console.log(`Image card, random int: ${random}`);
+        return (
+            <div className={styles.container}>
             <div className={styles.karma}>
                 <FontAwesomeIcon icon={faChevronUp} />
-                <span>{data.karma}</span>
+                <span>{image.karma}</span>
                 <FontAwesomeIcon icon={faChevronDown} />
             </div>
-            <h2 className={styles.title}>{data.title}</h2>
+            <h2 className={styles.title}>{image.title}</h2>
 
-            <div className={styles.content}>
-                <p>{data.content}</p>
+            <div className={styles.imageContainer}>
+                <img src={image.image} className={styles.image}/>
             </div>
 
             <div className={styles.comments}>
                 <FontAwesomeIcon icon={faComment} />    
-                <span className={styles.smallSpace}>{data.comments}</span>
+                <span className={styles.smallSpace}>{image.comments}</span>
             </div>
 
             <div className={styles.poster}>
-                <span>{data.poster} - </span>
-                <span>{data.time}</span>
+                <span>{image.poster} - </span>
+                <span>{image.time}</span>
             </div>
             
         </div>
-    );
+        );
+    }
 }
 
 export default Card;
