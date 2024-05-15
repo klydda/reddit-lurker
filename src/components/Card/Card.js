@@ -3,16 +3,16 @@ import TextCard from './TextCard';
 import ImageCard from './ImageCard';
 
 
-function Card({ value }) {
+function Card({ card }) {
     // Creates and returns the right Card based on the value.type property
-    switch (value.type) {
+    switch (card.type) {
         case 'text':
             return(
-                <TextCard value={value} />
+                <TextCard card={card} />
             );
         case 'image':
             return (
-                <ImageCard value={value} />
+                <ImageCard card={card} />
             );
     }
 }

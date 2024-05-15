@@ -24,9 +24,9 @@ function Feed() {
     //Creates aray of Cards populated with format [[key, {value}], [key, {value}]]
     return (
         <div className={styles.container}>
-            {Object.entries(filteredCards).map(([key, value]) => {
+            {filteredCards.map((card, index) => {
                 return (
-                    <Card key={key} value={value} />
+                    <Card key={index} card={card} />
                 );
             })}
         </div>
