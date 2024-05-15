@@ -3,8 +3,8 @@ import horizontalSunset from './horizontal-sunset.jpg';
 
 const cardsSlice = createSlice({
     name: 'cards',
-    initialState: {
-        1: {
+    initialState: [
+        {
             type: 'text',
             title: "This is a title",
             karma: 354,
@@ -12,8 +12,8 @@ const cardsSlice = createSlice({
             poster: 'SwaggerBoi420',
             comments: 54,
             time: "2024-05-06 22:30"
-        },
-        2: {
+        }, 
+        {
             type: 'image',
             title: 'This is a title',
             karma: 128,
@@ -22,7 +22,7 @@ const cardsSlice = createSlice({
             comments: 12,
             time: '2024-05-02 20:14'
         }
-    },
+    ],
     reducers: {
 
     }

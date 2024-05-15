@@ -4,28 +4,28 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faComment } from '@fortawesome/free-regular-svg-icons';
 import { faChevronUp, faChevronDown} from '@fortawesome/free-solid-svg-icons';
 
-function TextCard({ value }){
+function TextCard({ card }){
     return (
         <div className={styles.container}>
             <div className={styles.karma}>
                 <FontAwesomeIcon icon={faChevronUp} />
-                <span>{value.karma}</span>
+                <span>{card.karma}</span>
                 <FontAwesomeIcon icon={faChevronDown} />
             </div>
-            <h2 className={styles.title}>{value.title}</h2>
+            <h2 className={styles.title}>{card.title}</h2>
 
             <div className={styles.content}>
-                <p>{value.content}</p>
+                <p>{card.content}</p>
             </div>
 
             <div className={styles.comments}>
                 <FontAwesomeIcon icon={faComment} />    
-                <span className={styles.smallSpace}>{value.comments}</span>
+                <span className={styles.smallSpace}>{card.comments}</span>
             </div>
 
             <div className={styles.poster}>
-                <span>{value.poster} - </span>
-                <span>{value.time}</span>
+                <span>{card.poster} - </span>
+                <span>{card.time}</span>
             </div>
             
         </div>
