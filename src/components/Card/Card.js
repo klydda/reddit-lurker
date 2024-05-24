@@ -1,6 +1,7 @@
 import React from 'react';
 import TextCard from './TextCard';
 import ImageCard from './ImageCard';
+import VideoCard from './Videocard';
 
 
 function Card({ card }) {
@@ -14,6 +15,10 @@ function Card({ card }) {
 
     if(card.post_hint === 'image'){
         return <ImageCard card={card} />;
+    }
+
+    if(card.is_video === true){
+        return <VideoCard card={card} />;
     }
 
     // switch (card.type) {
