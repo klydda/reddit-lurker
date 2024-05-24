@@ -1,6 +1,5 @@
 import './App.css';
 import React, {useEffect } from 'react';
-import Auth from './components/Api/Auth.js';
 import Redirect from './components/Api/Redirect.js';
 import Root from './components/root/Root.js';
 import Feed from './components/Feed/Feed.js';
