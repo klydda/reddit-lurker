@@ -11,9 +11,6 @@ function Redirect() {
     const urlParams = new URLSearchParams(window.location.search);
     const hasCode = urlParams.has('code');
 
-    console.log('urlParams: ' + urlParams);
-    console.log('hasCode: ' + hasCode);
-
     if (!hasCode){
         window.location = url;
     }
