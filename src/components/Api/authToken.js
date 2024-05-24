@@ -1,13 +1,13 @@
 export function getToken(redditCode, dispatch, setAccessToken){
-    // Your credentials
+    // Credentials
     const clientId = 'dpMGyBoZES2fxkCJcpG66A';
     const clientSecret = 'YnlG8oUNqUhiov3Tulgue_gLhdedFQ';
     const credentials = btoa(`${clientId}:${clientSecret}`);
   
-    // The code you received from Reddit's redirect
+    // The code received from Reddit's redirect
     const code = redditCode;
   
-    // The exact redirect URI registered with your application
+    // The exact redirect URI registered with the application
     const redirectUri = 'http://localhost:3000/';
   
     // URL for the POST request
