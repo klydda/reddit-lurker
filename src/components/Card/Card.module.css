@@ -63,9 +63,14 @@ p {
 
     display: flex;
     align-items: center;
+    justify-self: flex-end;
     font-size: 0.8rem;
     color: #3D3D3D;
     font-style: italic;
+}
+
+.poster span{
+    padding: 0.2rem;
 }
 
 .smallSpace {

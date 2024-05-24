@@ -20,8 +20,6 @@ function Feed() {
         }
     }, [allCards]);
 
-
-
     // Get's the current filter from the URL and filteres the Cards to only show those whose type matches the string of the filter. Defaults to all cards if filter is empty.
     const [ searchParams ] = useSearchParams();
     const filter = searchParams.get('filter');
