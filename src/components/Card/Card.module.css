@@ -48,6 +48,7 @@ p {
     grid-area: content;
 }
 
+
 .comments {
     grid-area: comments;
 
@@ -97,4 +98,29 @@ p {
     width: 100%;
     height: auto;
     border-radius: 0.2rem;
+}
+
+.linkPreview {
+    display: flex;
+    flex-direction: row;
+
+    border: solid 1px rgb(211, 209, 209);
+    border-radius: 0.5rem;
+
+    background-color: #E6ECE9;
+}
+
+.linkThumbnail {
+    width: 140px;
+    height: auto;
+    border-radius: 0.5rem 0 0 0.5rem;
+}
+
+.linkTextDiv {
+    margin: 0.2rem 0 0 0.5rem;
+    overflow: clip;
+}
+
+.linkTitle {
+    font-weight: bold;
 }
