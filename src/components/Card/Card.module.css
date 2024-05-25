@@ -2,7 +2,7 @@
     display: grid;
     gap: 0.4rem 1rem;
     grid-template-columns: 4rem minmax(100px, 1fr) ;
-    grid-template-rows: 1.5rem auto 1.5rem;
+    grid-template-rows: auto auto 1.5rem;
     grid-template-areas: 
         "karma title"
         "karma content"
@@ -118,9 +118,10 @@ p {
 
 .linkTextDiv {
     margin: 0.2rem 0 0 0.5rem;
-    overflow: clip;
+    overflow: hidden;
 }
 
 .linkTitle {
     font-weight: bold;
+    overflow: hidden;
 }
