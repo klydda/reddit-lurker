@@ -26,7 +26,7 @@ function LinkCard({ card }){
             <h2 className={styles.title}>{card.title}</h2>
 
             <div className={styles.content}>
-                <a class={styles.linkPreview} href={card.url}>
+                <a className={styles.linkPreview} href={card.url}>
                     {defaultThumbnail ? <img src={pepeingPepe} className={styles.linkThumbnail} /> : <img src={card.thumbnail} className={styles.linkThumbnail} />}
                     
                     <div class={styles.linkTextDiv}>

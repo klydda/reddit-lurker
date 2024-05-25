@@ -79,16 +79,39 @@ p {
 }
 
 .imageContainer {
-    margin-right: 1rem;
-}
-
-.imageContainerCenter {
     display: flex;
     justify-content: center;
-    background-color: #F6FBF9;
+}
+
+.imageContainerHigh {
+    display: flex;
+    justify-content: center;
+
+    background-color: #E9F5F0;
+    border-radius: 0.5rem;
+}
+
+.imageContainerBroad {
+    display: flex;
+    justify-content: center;
+
+    background-color: #E9F5F0;
+    border-radius: 0.5rem;
 }
 
 .image {
+    width: 100%;
+    height: auto;
+    border-radius: 0.2rem;
+}
+
+.dimensionHigh {
+    max-height: 50rem;
+    width: auto;
+    border-radius: 0.2rem;
+}
+
+.dimensionBroad {
     width: 100%;
     height: auto;
     border-radius: 0.2rem;

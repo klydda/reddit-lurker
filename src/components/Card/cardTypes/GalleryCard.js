@@ -19,7 +19,7 @@ function GalleryCard ({ card }){
         </div>
         <h2 className={styles.title}>{card.title}</h2>
 
-        <div className={styles.imageContainerCenter}>
+        <div className={styles.imageContainer}>
             <a href={card.url} target='_blank'><img src={card.thumbnail} className={styles.thumbnail}/></a>
         </div>
 

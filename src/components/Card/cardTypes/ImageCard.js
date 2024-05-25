@@ -9,6 +9,17 @@ function ImageCard({ card }){
     const date = new Date(timestamp * 1000);
     const formatedTimestamp = `${date.getHours()}:${date.getMinutes()} - ${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`;
 
+    //Allows for dynamically setting class based on image dimentions
+    const imageWidth = card.preview.images[0].source.width;
+    const imageHeight = card.preview.images[0].source.height;
+    let broaderThanHigh;
+
+    if (imageWidth > imageHeight){
+        broaderThanHigh = true;
+    } else {
+        broaderThanHigh = false;
+    }
+
     console.log(card.url);
 
 
@@ -21,8 +32,8 @@ function ImageCard({ card }){
         </div>
         <h2 className={styles.title}>{card.title}</h2>
 
-        <div className={styles.imageContainer}>
-            <img src={card.url} className={styles.image}/>
+        <div className={broaderThanHigh ? styles.imageContainerBroad : styles.imageContainerHigh}>
+            <img src={card.url} className={broaderThanHigh ? styles.dimensionBroad: styles.dimensionHigh}/>
         </div>
 
         <div className={styles.comments}>
