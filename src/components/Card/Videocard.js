@@ -42,7 +42,7 @@ function VideoCard({ card }){
 
     
     return (
-        <div className={styles.container}>
+    <div className={styles.container}>
         <div className={styles.karma}>
             <FontAwesomeIcon icon={faChevronUp} />
             <span>{card.score}</span>
@@ -51,7 +51,7 @@ function VideoCard({ card }){
         <h2 className={styles.title}>{card.title}</h2>
 
         <div ref={divRef} className={styles.imageContainer}>
-            <video ref={videoRef} controls autoPlay loop>
+            <video ref={videoRef} controls loop>
                 <source src={card.secure_media.reddit_video.fallback_url}/>
             </video>
         </div>

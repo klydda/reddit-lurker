@@ -4,16 +4,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faComment } from '@fortawesome/free-regular-svg-icons';
 import { faChevronUp, faChevronDown} from '@fortawesome/free-solid-svg-icons';
 
-function ImageCard({ card }){
+function GalleryCard ({ card }){
     const timestamp = card.created;
     const date = new Date(timestamp * 1000);
     const formatedTimestamp = `${date.getHours()}:${date.getMinutes()} - ${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`;
 
-    console.log(card.url);
-
-
+    
     return (
-    <div className={styles.container} >
+    <div className={styles.container}>
         <div className={styles.karma}>
             <FontAwesomeIcon icon={faChevronUp} />
             <span>{card.score}</span>
@@ -21,8 +19,8 @@ function ImageCard({ card }){
         </div>
         <h2 className={styles.title}>{card.title}</h2>
 
-        <div className={styles.imageContainer}>
-            <img src={card.url} className={styles.image}/>
+        <div className={styles.imageContainerCenter}>
+            <a href={card.url} target='_blank'><img src={card.thumbnail} className={styles.thumbnail}/></a>
         </div>
 
         <div className={styles.comments}>
@@ -39,4 +37,4 @@ function ImageCard({ card }){
     );
 }
 
-export default ImageCard;
+export default GalleryCard;
