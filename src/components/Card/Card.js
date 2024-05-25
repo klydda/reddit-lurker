@@ -1,9 +1,9 @@
 import React from 'react';
-import TextCard from './TextCard';
-import ImageCard from './ImageCard';
-import VideoCard from './Videocard';
-import GalleryCard from './GalleryCard';
-import LinkCard from './LinkCard';
+import TextCard from './cardTypes/TextCard';
+import ImageCard from './cardTypes/ImageCard';
+import VideoCard from './cardTypes/Videocard';
+import GalleryCard from './cardTypes/GalleryCard';
+import LinkCard from './cardTypes/LinkCard';
 
 
 function Card({ card }) {

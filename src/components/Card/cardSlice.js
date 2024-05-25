@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit';
-import horizontalSunset from './horizontal-sunset.jpg';
 
 const cardsSlice = createSlice({
     name: 'cards',
