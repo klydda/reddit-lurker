@@ -1,6 +1,6 @@
 .container {
     display: grid;
-    gap: 0.4rem 1rem;
+    gap: 1rem 1rem;
     grid-template-columns: 4rem minmax(100px, 1fr) ;
     grid-template-rows: auto auto 1.5rem;
     grid-template-areas: 

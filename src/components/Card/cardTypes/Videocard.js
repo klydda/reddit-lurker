@@ -13,6 +13,14 @@ function VideoCard({ card }){
     const videoRef = useRef(null);  // Create a ref object for the video
     const [divWidth, setDivWidth] = useState(0);  // State to store the div width
 
+    const videoHeight = card.media.reddit_video.height;
+    const videoWidth = card.media.reddit_video.width;
+    let broaderThanHigh;
+
+    if (videoWidth > videoHeight) {
+        broaderThanHigh = true;
+    }
+
     
     useEffect(() => {
         if (divRef.current) {
@@ -51,7 +59,7 @@ function VideoCard({ card }){
         <h2 className={styles.title}>{card.title}</h2>
 
         <div ref={divRef} className={styles.imageContainer}>
-            <video ref={videoRef} controls loop>
+            <video ref={videoRef} className={broaderThanHigh ? '' : styles.dimensionHigh} controls loop>
                 <source src={card.secure_media.reddit_video.fallback_url}/>
             </video>
         </div>
