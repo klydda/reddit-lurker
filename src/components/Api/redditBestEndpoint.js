@@ -23,7 +23,9 @@ export function getFirstBestPosts(accessToken, dispatch, setCards, setAfter, set
     .then(data => {
         const rawPosts = extractRawPosts(data);
         const after = data.data.after;
+        console.log('after: ' + after);
         const count = rawPosts.length;
+        console.log('count: ' + count);
         dispatch(setCards(rawPosts));
         dispatch(setAfter(after));
         dispatch(setCount(count));
@@ -34,7 +36,7 @@ export function getFirstBestPosts(accessToken, dispatch, setCards, setAfter, set
     });
 }
 
-export function getNextBestPosts(accessToken, dispatch, setCards, setAfter, setCount, oldAfter, oldCount){
+export function getNextBestPosts(accessToken, dispatch, setAfter, setCount, oldAfter, oldCount, addCards){
     const params = `?after=${oldAfter}&count=${oldCount}`;
     const apiUrl = 'https://oauth.reddit.com/best.json' + params;
 
@@ -60,7 +62,8 @@ export function getNextBestPosts(accessToken, dispatch, setCards, setAfter, setC
         const rawPosts = extractRawPosts(data);
         const after = data.data.after;
         const count = rawPosts.length;
-        dispatch(setCards(rawPosts));
+        console.log(typeof count);
+        dispatch(addCards(rawPosts));
         dispatch(setAfter(after));
         dispatch(setCount(count));
         console.log(data);

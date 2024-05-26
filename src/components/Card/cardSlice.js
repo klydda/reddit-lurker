@@ -5,11 +5,15 @@ const cardsSlice = createSlice({
     initialState: {
         posts: [],
         after: '',
-        count: ''
+        count: 0
     },
     reducers: {
         setCards: (state, action) => {
+            console.log('Dispatch recieved, payload: ' + action.payload);
             state.posts = action.payload;
+        },
+        addCards: (state, action) => {
+            state.posts.push(...action.payload);
         },
         setAfter: (state, action) => {
             state.after = action.payload;
@@ -20,7 +24,7 @@ const cardsSlice = createSlice({
     }
 })
 
-export const { setCards, setAfter, setCount } = cardsSlice.actions;
+export const { setCards, addCards, setAfter, setCount } = cardsSlice.actions;
 export const getAllCards = (state) => state.cards.posts;
 export const getAfter = (state) => state.cards.after;
 export const getCount = (state) => state.cards.count;
