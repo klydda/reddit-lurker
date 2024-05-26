@@ -25,6 +25,7 @@ function Root() {
 
                 <div className={styles.filter}>
                     <button><Link to="/?filter=image">Images</Link></button>
+                    <button><Link to="/?filter=video">Videos</Link></button>
                     <button><Link to="/?filter=text">Text</Link></button> 
                 </div>
 
