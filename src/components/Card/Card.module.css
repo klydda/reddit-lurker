@@ -2,7 +2,7 @@
     display: grid;
     gap: 1rem 1rem;
     grid-template-columns: 4rem minmax(100px, 1fr) ;
-    grid-template-rows: auto auto 1.5rem;
+    grid-template-rows: auto auto auto;
     grid-template-areas: 
         "karma title"
         "karma content"
@@ -46,6 +46,7 @@ p {
 
 .content {
     grid-area: content;
+    overflow: clip;
 }
 
 
@@ -63,11 +64,13 @@ p {
     grid-area: poster;
 
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-self: flex-end;
     font-size: 0.8rem;
     color: #3D3D3D;
     font-style: italic;
+
 }
 
 .poster span{

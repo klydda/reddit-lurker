@@ -85,13 +85,11 @@ function ImageCard({ card }){
         </div>
 
         <div className={styles.poster}>
-            <div>
-                <span>{card.subreddit_name_prefixed}</span>
-                <span>|</span>
-                <span>u/{card.author}</span>
-                <span>|</span>
-                <span>{formatedTimestamp}</span>
-            </div>
+            <span>{card.subreddit_name_prefixed}</span>
+            <span>|</span>
+            <span>u/{card.author}</span>
+            <span>|</span>
+            <span>{formatedTimestamp}</span>
         </div>
         
     </div>
