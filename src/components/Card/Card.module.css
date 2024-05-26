@@ -148,10 +148,3 @@ p {
     font-weight: bold;
     overflow: hidden;
 }
-
-@media only screen and (max-width: 800px){
-    .dimensionHigh{
-        max-height: none;
-        height: auto;
-    }
-}
