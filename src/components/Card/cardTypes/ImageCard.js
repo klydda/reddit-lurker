@@ -66,16 +66,6 @@ function ImageCard({ card }){
         };
     }, []);  // Empty dependency array ensures this effect runs only once after initial render
 
-    // useEffect(() => {
-    //     if (!broaderThanHigh) {
-    //         if((divWidth * ratio) + 1 < 800){
-    //             console.log('TRIGGER!!!!');
-    //             imageRef.current.style.width = `${divWidth}px`;  // Set the image width based on the div width
-    //         }
-    //     }
-    // }, [divWidth]);  // Update the image width whenever divWidth changes
-
-
     return (
     <div className={styles.container} >
         <div className={styles.karma}>
