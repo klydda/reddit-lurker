@@ -27,7 +27,6 @@ function Feed() {
     let filteredCards;
 
     if (filter){
-        console.log('FILTER!!');
         if(filter === 'text'){
             filteredCards = Object.values(allCards).filter((card) => card.post_hint !== 'image' && card.is_gallery !== true && card.is_video !== true && card.post_hint !== 'link');
         } else if (filter === 'image'){
@@ -37,7 +36,6 @@ function Feed() {
         }
 
     } else {
-        console.log('NOT FILTER!!');
         filteredCards = allCards;
     }
 

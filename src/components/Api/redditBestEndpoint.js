@@ -24,7 +24,6 @@ export function getBestPosts(accessToken, dispatch, setCards){
         const rawPosts = extractRawPosts(data);
         dispatch(setCards(rawPosts));
         // console.log(rawPosts);
-        // console.log('Data received:', data);  // Handle the data from the response
     })
     .catch(error => {
         console.error('Fetch error:', error);  // Handle any errors that occur during the fetch

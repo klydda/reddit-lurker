@@ -38,7 +38,6 @@ export function getToken(redditCode, dispatch, setAccessToken){
       .then(response => response.json())
       .then(data => {
         const accessToken = data.access_token;
-        console.log('Fetch ACT: ' + accessToken);
   
         if(accessToken){
           dispatch(setAccessToken(accessToken));
