@@ -22,4 +22,6 @@ const cardsSlice = createSlice({
 
 export const { setCards, setAfter, setCount } = cardsSlice.actions;
 export const getAllCards = (state) => state.cards.posts;
+export const getAfter = (state) => state.cards.after;
+export const getCount = (state) => state.cards.count;
 export default cardsSlice.reducer;

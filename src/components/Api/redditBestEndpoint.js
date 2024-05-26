@@ -34,8 +34,9 @@ export function getFirstBestPosts(accessToken, dispatch, setCards, setAfter, set
     });
 }
 
-export function getNextBestPosts(accessToken, dispatch, setCards, setAfter, setCount){
-    const apiUrl = 'https://oauth.reddit.com/best.json';
+export function getNextBestPosts(accessToken, dispatch, setCards, setAfter, setCount, oldAfter, oldCount){
+    const params = `?after=${oldAfter}&count=${oldCount}`;
+    const apiUrl = 'https://oauth.reddit.com/best.json' + params;
 
     // Setup the headers you want to include in your request
     const headers = new Headers({
@@ -60,6 +61,8 @@ export function getNextBestPosts(accessToken, dispatch, setCards, setAfter, setC
         const after = data.data.after;
         const count = rawPosts.length;
         dispatch(setCards(rawPosts));
+        dispatch(setAfter(after));
+        dispatch(setCount(count));
         console.log(data);
     })
     .catch(error => {
