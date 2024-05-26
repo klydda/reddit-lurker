@@ -51,9 +51,11 @@ function Feed() {
         <div className={styles.container}>
             {filteredCards.map((card, index) => {
                 return (
-                    <Card key={index} card={card} />
+                    <Card key={index} card={card} handleNext={handleGetNextPosts} />
                 );
             })}
+
+            <button onClick={handleGetNextPosts}>Load more</button>
         </div>
     );
 }
