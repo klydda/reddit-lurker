@@ -37,7 +37,11 @@ function ImageCard({ card }){
     useEffect(() => {
         if (divRef.current) {
             if(broaderThanHigh){
-                setImgWidth(divRef.current.offsetWidth);
+                if(imageWidth < divRef.current.offsetWidth){
+                    setImgWidth(imageWidth);
+                } else {
+                    setImgWidth(divRef.current.offsetWidth);
+                }
             } else {
                 setImgWidth(initialWidth);
             }
@@ -46,10 +50,11 @@ function ImageCard({ card }){
         // Optional: Handle window resize
         const handleResize = () => {
             if (divRef.current) {
-
                 if(!broaderThanHigh){       //Handle tall images
                     const width = getWidth();
                     setImgWidth(width);
+                } else if (imageWidth < divRef.current.offsetWidth){  // Do nothing for wide images smaller than the div width
+                    
                 } else {            //Handle wide images
                     const width = divRef.current.offsetWidth;
                     setImgWidth(width);
