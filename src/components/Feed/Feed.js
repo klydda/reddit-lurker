@@ -3,10 +3,10 @@ import Card from '../Card/Card';
 import styles from './Feed.module.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams, useSearchParams } from 'react-router-dom';
-import { setCards, getAllCards } from '../Card/cardSlice';
+import { setCards, setAfter, setCount, getAllCards } from '../Card/cardSlice';
 import { getAccessToken } from '../Api/apiSlice';
 
-import { getBestPosts } from '../Api/redditBestEndpoint';
+import { getFirstBestPosts, getNextBestPosts } from '../Api/redditBestEndpoint';
 
 
 function Feed() {
@@ -14,11 +14,16 @@ function Feed() {
     const allCards = useSelector(getAllCards);
     const accessToken = useSelector(getAccessToken);
 
+    //useEffect hook that calls getFirstBestPosts to fetch posts from reddit if none are stored in state
     useEffect(() => {
         if(allCards.length === 0){
-            getBestPosts(accessToken, dispatch, setCards);
+            getFirstBestPosts(accessToken, dispatch, setCards, setAfter, setCount);
         }
     }, [allCards]);
+
+    function handleGetNextPosts(){
+        getNextBestPosts(accessToken, dispatch, setCards, setAfter, setCount);
+    }
 
     // Get's the current filter from the URL and filteres the Cards to only show those whose type matches the string of the filter. Defaults to all cards if filter is empty.
     const [ searchParams ] = useSearchParams();
