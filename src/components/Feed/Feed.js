@@ -43,8 +43,6 @@ function Feed() {
         }
     } else {
         filteredCards = allCards;
-        console.log('allCards: ' + allCards);
-        console.log('filteredCards' + filteredCards);
     }
 
     //Creates aray of Cards populated with format [[key, {value}], [key, {value}]]
@@ -56,7 +54,7 @@ function Feed() {
                 );
             })}
 
-            <button onClick={handleGetNextPosts}>Load more</button>
+            <button onClick={handleGetNextPosts} className={styles.loadMore}>+</button>
         </div>
     );
 }
