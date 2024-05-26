@@ -4,6 +4,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faComment } from '@fortawesome/free-regular-svg-icons';
 import { faChevronUp, faChevronDown} from '@fortawesome/free-solid-svg-icons';
 
+import peepingPepe from '../../root/peeping-pepe.png';
+
 function GalleryCard ({ card }){
     const timestamp = card.created;
     const date = new Date(timestamp * 1000);
@@ -18,10 +20,16 @@ function GalleryCard ({ card }){
             <FontAwesomeIcon icon={faChevronDown} />
         </div>
         <h2 className={styles.title}>{card.title}</h2>
-        
-        <div className={styles.imageContainer}>
-            <a href={card.url} target='_blank'><img src={card.thumbnail} className={styles.thumbnail}/></a>
-        </div>
+
+        <a className={styles.linkPreview} href={card.url}>
+                <>
+                    {card.thumbnail === 'nsfw' ? <img src={peepingPepe} className={styles.linkThumbnail} /> : <img src={card.thumbnail} className={styles.linkThumbnail} />}
+                    <div class={styles.linkTextDiv}>
+                        {card.thumbnail === 'nsfw' ? <p class={styles.linkTitle}>NSFW Gallery 👀 </p> : <p class={styles.linkTitle}>Gallery</p>}
+                        <p>{card.url}</p>
+                    </div>
+                </>
+        </a>
 
         <div className={styles.comments}>
             <FontAwesomeIcon icon={faComment} />    
