@@ -18,7 +18,7 @@ function GalleryCard ({ card }){
             <FontAwesomeIcon icon={faChevronDown} />
         </div>
         <h2 className={styles.title}>{card.title}</h2>
-
+        
         <div className={styles.imageContainer}>
             <a href={card.url} target='_blank'><img src={card.thumbnail} className={styles.thumbnail}/></a>
         </div>
@@ -29,8 +29,13 @@ function GalleryCard ({ card }){
         </div>
 
         <div className={styles.poster}>
-            <span>{card.author}</span>
-            <span>{formatedTimestamp}</span>
+            <div>
+                <span>{card.subreddit_name_prefixed}</span>
+                <span>|</span>
+                <span>u/{card.author}</span>
+                <span>|</span>
+                <span>{formatedTimestamp}</span>
+            </div>
         </div>
         
     </div>
