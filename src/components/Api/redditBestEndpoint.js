@@ -23,13 +23,10 @@ export function getFirstBestPosts(accessToken, dispatch, setCards, setAfter, set
     .then(data => {
         const rawPosts = extractRawPosts(data);
         const after = data.data.after;
-        console.log('after: ' + after);
         const count = rawPosts.length;
-        console.log('count: ' + count);
         dispatch(setCards(rawPosts));
         dispatch(setAfter(after));
         dispatch(setCount(count));
-        console.log(data);
     })
     .catch(error => {
         console.error('Fetch error:', error);  // Handle any errors that occur during the fetch
@@ -62,11 +59,9 @@ export function getNextBestPosts(accessToken, dispatch, setAfter, setCount, oldA
         const rawPosts = extractRawPosts(data);
         const after = data.data.after;
         const count = rawPosts.length;
-        console.log(typeof count);
         dispatch(addCards(rawPosts));
         dispatch(setAfter(after));
         dispatch(setCount(count));
-        console.log(data);
     })
     .catch(error => {
         console.error('Fetch error:', error);  // Handle any errors that occur during the fetch

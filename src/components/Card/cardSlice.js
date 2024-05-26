@@ -9,7 +9,6 @@ const cardsSlice = createSlice({
     },
     reducers: {
         setCards: (state, action) => {
-            console.log('Dispatch recieved, payload: ' + action.payload);
             state.posts = action.payload;
         },
         addCards: (state, action) => {
