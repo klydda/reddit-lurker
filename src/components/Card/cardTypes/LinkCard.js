@@ -43,10 +43,15 @@ function LinkCard({ card }){
                 <span className={styles.smallSpace}>{card.num_comments}</span>
             </div>
 
-            <div className={styles.poster}>
-                <span>Posted by {card.author}</span>
-                <span>at {formatedTimestamp}</span>
+        <div className={styles.poster}>
+            <div>
+                <span>{card.subreddit_name_prefixed}</span>
+                <span>|</span>
+                <span>u/{card.author}</span>
+                <span>|</span>
+                <span>{formatedTimestamp}</span>
             </div>
+        </div>
             
         </div>
     );
