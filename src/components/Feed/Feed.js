@@ -23,13 +23,18 @@ function Feed() {
     //useEffect hook that calls getFirstBestPosts to fetch posts from reddit if none are stored in state
     useEffect(() => {
         console.log('effect triggered');
-        if(allCards.length === 0){
-            getFirstBestPosts(accessToken, dispatch, setCards, currentSubreddit);
+        if(currentSubreddit === 'best') {
+            if(allCards.length === 0){
+                getFirstBestPosts(accessToken, dispatch, setCards, currentSubreddit);
+            }
         }
+
     }, []);
 
     function handleGetNextPosts(){
-        getNextBestPosts(accessToken, dispatch, after, count, addCards, currentSubreddit);
+        if(currentSubreddit === 'best'){
+            getNextBestPosts(accessToken, dispatch, after, count, addCards, currentSubreddit);
+        }
     }
 
     // Get's the current filter from the URL and filteres the Cards to only show those whose type matches the string of the filter. Defaults to all cards if filter is empty.
