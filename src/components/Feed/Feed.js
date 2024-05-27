@@ -15,6 +15,9 @@ function Feed() {
     const count = useSelector(getCount);
     const after = useSelector(getAfter);
 
+    const { subreddit } = useParams();
+    console.log('Subreddit param: ' + subreddit);
+
     //useEffect hook that calls getFirstBestPosts to fetch posts from reddit if none are stored in state
     useEffect(() => {
         console.log('effect triggered');

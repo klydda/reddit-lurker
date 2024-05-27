@@ -1,9 +1,16 @@
 import React from 'react';
 import styles from './Root.module.css';
 import pepe from './peeping-pepe.png';
-import { Outlet, Link } from 'react-router-dom';
+import { Outlet, Link, useNavigate } from 'react-router-dom';
 
 function Root() {
+
+    const navigate = useNavigate();
+
+    function handleGoToSubreddit(){
+        navigate('/r/space');
+    }
+
     return (
         <>
             <header className={styles.header}>
@@ -27,6 +34,7 @@ function Root() {
                     <button><Link to="/?filter=image">Images</Link></button>
                     <button><Link to="/?filter=video">Videos</Link></button>
                     <button><Link to="/?filter=text">Text</Link></button> 
+                    <button onClick={handleGoToSubreddit}>Space</button>
                 </div>
 
             </header>
