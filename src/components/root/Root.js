@@ -14,6 +14,13 @@ function Root() {
         navigate(navigateString);
     }
 
+    function handleFilterClick(filter){
+        const url = new URL(window.location.href);
+        url.searchParams.set('filter', filter);
+    
+        navigate(url.pathname + url.search);
+    }
+
     return (
         <>
             <header className={styles.header}>
@@ -34,9 +41,9 @@ function Root() {
                 </div>
 
                 <div className={styles.filter}>
-                    <button><Link to="/?filter=image">Images</Link></button>
-                    <button><Link to="/?filter=video">Videos</Link></button>
-                    <button><Link to="/?filter=text">Text</Link></button> 
+                    <button onClick={() => handleFilterClick('image')}>Images</button>
+                    <button onClick={() => handleFilterClick('video')}>Videos</button>
+                    <button onClick={() => handleFilterClick('text')}>Text</button> 
                     <button onClick={handleGoToSubreddit}>Space</button>
                     <button onClick={handleGoToSubreddit}>Cats</button>
                 </div>

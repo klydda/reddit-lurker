@@ -29,9 +29,7 @@ function Feed() {
                 getFirstBestPosts(accessToken, dispatch, setCards, currentSubreddit);
             }
         } else {
-            console.log('Current subreddit is not best, triggered');
             if(allCards.length === 0){
-                console.log('Card length is 0, triggered');
                 const first = true;
                 getPosts(accessToken, dispatch, after, count, setCards, addCards, currentSubreddit, first);
             }
@@ -51,6 +49,8 @@ function Feed() {
     // Get's the current filter from the URL and filteres the Cards to only show those whose type matches the string of the filter. Defaults to all cards if filter is empty.
     const [ searchParams ] = useSearchParams();
     const filter = searchParams.get('filter');
+
+    console.log('filter: ' + filter);
     
     let filteredCards;
 
