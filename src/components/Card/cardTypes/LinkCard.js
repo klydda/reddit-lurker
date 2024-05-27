@@ -29,8 +29,8 @@ function LinkCard({ card }){
                 <a className={styles.linkPreview} href={card.url}>
                     {defaultThumbnail ? <img src={pepeingPepe} className={styles.linkThumbnail} /> : <img src={card.thumbnail} className={styles.linkThumbnail} />}
                     
-                    <div class={styles.linkTextDiv}>
-                        <p class={styles.linkTitle}>{card.domain}</p>
+                    <div className={styles.linkTextDiv}>
+                        <p className={styles.linkTitle}>{card.domain}</p>
                         <p>{card.url}</p>
                     </div>
 

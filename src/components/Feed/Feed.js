@@ -7,6 +7,7 @@ import { setCards, addCards, getCards, getAfter, getCount} from '../Card/cardSli
 import { getAccessToken } from '../Api/apiSlice';
 
 import { getFirstBestPosts, getNextBestPosts } from '../Api/redditBestEndpoint';
+import { getPosts } from '../Api/redditGetSubredditPosts';
 
 function Feed() {
     const dispatch = useDispatch();
@@ -27,13 +28,23 @@ function Feed() {
             if(allCards.length === 0){
                 getFirstBestPosts(accessToken, dispatch, setCards, currentSubreddit);
             }
+        } else {
+            console.log('Current subreddit is not best, triggered');
+            if(allCards.length === 0){
+                console.log('Card length is 0, triggered');
+                const first = true;
+                getPosts(accessToken, dispatch, after, count, setCards, addCards, currentSubreddit, first);
+            }
         }
 
-    }, []);
+    }, [currentSubreddit]);
 
     function handleGetNextPosts(){
         if(currentSubreddit === 'best'){
             getNextBestPosts(accessToken, dispatch, after, count, addCards, currentSubreddit);
+        } else {
+            const first = false;
+            getPosts(accessToken, dispatch, after, count, setCards, addCards, currentSubreddit, first);
         }
     }
 

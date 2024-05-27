@@ -24,8 +24,8 @@ function GalleryCard ({ card }){
         <a className={styles.linkPreview} href={card.url}>
                 <>
                     {card.thumbnail === 'nsfw' ? <img src={peepingPepe} className={styles.linkThumbnail} /> : <img src={card.thumbnail} className={styles.linkThumbnail} />}
-                    <div class={styles.linkTextDiv}>
-                        {card.thumbnail === 'nsfw' ? <p class={styles.linkTitle}>NSFW Gallery 👀 </p> : <p class={styles.linkTitle}>Gallery</p>}
+                    <div className={styles.linkTextDiv}>
+                        {card.thumbnail === 'nsfw' ? <p className={styles.linkTitle}>NSFW Gallery 👀 </p> : <p className={styles.linkTitle}>Gallery</p>}
                         <p>{card.url}</p>
                     </div>
                 </>
