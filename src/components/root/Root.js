@@ -8,8 +8,10 @@ function Root() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    function handleGoToSubreddit(){
-        navigate('/r/space');
+    function handleGoToSubreddit(event){
+        const name = event.target.innerText;
+        const navigateString = `/r/${name}`;
+        navigate(navigateString);
     }
 
     return (
@@ -36,6 +38,7 @@ function Root() {
                     <button><Link to="/?filter=video">Videos</Link></button>
                     <button><Link to="/?filter=text">Text</Link></button> 
                     <button onClick={handleGoToSubreddit}>Space</button>
+                    <button onClick={handleGoToSubreddit}>Cats</button>
                 </div>
 
             </header>
