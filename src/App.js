@@ -13,7 +13,7 @@ import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements, N
 const router = createBrowserRouter( createRoutesFromElements(
   <Route path='/' element={<Root />} >
     <Route index element={<Feed />} />
-    <Route path='r/:subreddit' element={<Feed />} />
+    <Route path='/r/:subreddit' element={<Feed />} />
   </Route>
 ));
 

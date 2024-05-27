@@ -1,5 +1,5 @@
 
-export function getFirstBestPosts(accessToken, dispatch, setCards, setAfter, setCount){
+export function getFirstBestPosts(accessToken, dispatch, setCards, name){
     const apiUrl = 'https://oauth.reddit.com/best.json';
 
     // Setup the headers you want to include in your request
@@ -24,16 +24,20 @@ export function getFirstBestPosts(accessToken, dispatch, setCards, setAfter, set
         const rawPosts = extractRawPosts(data);
         const after = data.data.after;
         const count = rawPosts.length;
-        dispatch(setCards(rawPosts));
-        dispatch(setAfter(after));
-        dispatch(setCount(count));
+        const dispatchObject = {
+            name: name,
+            posts: rawPosts,
+            after: after,
+            count, count
+        }
+        dispatch(setCards(dispatchObject));
     })
     .catch(error => {
         console.error('Fetch error:', error);  // Handle any errors that occur during the fetch
     });
 }
 
-export function getNextBestPosts(accessToken, dispatch, setAfter, setCount, oldAfter, oldCount, addCards){
+export function getNextBestPosts(accessToken, dispatch, oldAfter, oldCount, addCards, name){
     const params = `?after=${oldAfter}&count=${oldCount}`;
     const apiUrl = 'https://oauth.reddit.com/best.json' + params;
 
@@ -59,9 +63,13 @@ export function getNextBestPosts(accessToken, dispatch, setAfter, setCount, oldA
         const rawPosts = extractRawPosts(data);
         const after = data.data.after;
         const count = rawPosts.length;
-        dispatch(addCards(rawPosts));
-        dispatch(setAfter(after));
-        dispatch(setCount(count));
+        const dispatchObject = {
+            name: name,
+            posts: rawPosts,
+            after: after,
+            count, count
+        }
+        dispatch(addCards(dispatchObject));
     })
     .catch(error => {
         console.error('Fetch error:', error);  // Handle any errors that occur during the fetch

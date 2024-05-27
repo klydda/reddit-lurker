@@ -1,9 +1,19 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import styles from './Root.module.css';
 import pepe from './peeping-pepe.png';
-import { Outlet, Link } from 'react-router-dom';
+import { Outlet, Link, useNavigate } from 'react-router-dom';
 
 function Root() {
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
+    function handleGoToSubreddit(event){
+        const name = event.target.innerText;
+        const navigateString = `/r/${name}`;
+        navigate(navigateString);
+    }
+
     return (
         <>
             <header className={styles.header}>
@@ -27,6 +37,8 @@ function Root() {
                     <button><Link to="/?filter=image">Images</Link></button>
                     <button><Link to="/?filter=video">Videos</Link></button>
                     <button><Link to="/?filter=text">Text</Link></button> 
+                    <button onClick={handleGoToSubreddit}>Space</button>
+                    <button onClick={handleGoToSubreddit}>Cats</button>
                 </div>
 
             </header>

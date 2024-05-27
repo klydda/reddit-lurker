@@ -3,28 +3,49 @@ import Card from '../Card/Card';
 import styles from './Feed.module.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams, useSearchParams } from 'react-router-dom';
-import { setCards, addCards, setAfter, setCount, getAllCards, getAfter, getCount } from '../Card/cardSlice';
+import { setCards, addCards, getCards, getAfter, getCount} from '../Card/cardSlice';
 import { getAccessToken } from '../Api/apiSlice';
 
 import { getFirstBestPosts, getNextBestPosts } from '../Api/redditBestEndpoint';
+import { getPosts } from '../Api/redditGetSubredditPosts';
 
 function Feed() {
     const dispatch = useDispatch();
-    const allCards = useSelector(getAllCards);
+    const { subreddit } = useParams();
+    const currentSubreddit = subreddit ? subreddit : 'best';
+    const allCards = useSelector(getCards(currentSubreddit));
     const accessToken = useSelector(getAccessToken);
-    const count = useSelector(getCount);
-    const after = useSelector(getAfter);
+    const after = useSelector(getAfter(currentSubreddit))
+    const count = useSelector(getCount(currentSubreddit));
+
+    
+    console.log('Subreddit param: ' + subreddit);
 
     //useEffect hook that calls getFirstBestPosts to fetch posts from reddit if none are stored in state
     useEffect(() => {
         console.log('effect triggered');
-        if(allCards.length === 0){
-            getFirstBestPosts(accessToken, dispatch, setCards, setAfter, setCount);
+        if(currentSubreddit === 'best') {
+            if(allCards.length === 0){
+                getFirstBestPosts(accessToken, dispatch, setCards, currentSubreddit);
+            }
+        } else {
+            console.log('Current subreddit is not best, triggered');
+            if(allCards.length === 0){
+                console.log('Card length is 0, triggered');
+                const first = true;
+                getPosts(accessToken, dispatch, after, count, setCards, addCards, currentSubreddit, first);
+            }
         }
-    }, []);
+
+    }, [currentSubreddit]);
 
     function handleGetNextPosts(){
-        getNextBestPosts(accessToken, dispatch, setAfter, setCount, after, count, addCards);
+        if(currentSubreddit === 'best'){
+            getNextBestPosts(accessToken, dispatch, after, count, addCards, currentSubreddit);
+        } else {
+            const first = false;
+            getPosts(accessToken, dispatch, after, count, setCards, addCards, currentSubreddit, first);
+        }
     }
 
     // Get's the current filter from the URL and filteres the Cards to only show those whose type matches the string of the filter. Defaults to all cards if filter is empty.
