@@ -2,11 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const cardsSlice = createSlice({
     name: 'cards',
-    initialState: {
-        posts: [],
-        after: '',
-        count: 0
-    },
+    initialState: {},
     reducers: {
         setCards: (state, action) => {
             const { name, posts, after, count } = action.payload;
