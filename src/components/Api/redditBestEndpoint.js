@@ -1,5 +1,5 @@
 
-export function getFirstBestPosts(accessToken, dispatch, setCards, setAfter, setCount){
+export function getFirstBestPosts(accessToken, dispatch, setCards, name){
     const apiUrl = 'https://oauth.reddit.com/best.json';
 
     // Setup the headers you want to include in your request
@@ -25,7 +25,7 @@ export function getFirstBestPosts(accessToken, dispatch, setCards, setAfter, set
         const after = data.data.after;
         const count = rawPosts.length;
         const dispatchObject = {
-            name: 'space',
+            name: name,
             posts: rawPosts,
             after: after,
             count, count
@@ -37,7 +37,7 @@ export function getFirstBestPosts(accessToken, dispatch, setCards, setAfter, set
     });
 }
 
-export function getNextBestPosts(accessToken, dispatch, oldAfter, oldCount, addCards){
+export function getNextBestPosts(accessToken, dispatch, oldAfter, oldCount, addCards, name){
     const params = `?after=${oldAfter}&count=${oldCount}`;
     const apiUrl = 'https://oauth.reddit.com/best.json' + params;
 
@@ -64,7 +64,7 @@ export function getNextBestPosts(accessToken, dispatch, oldAfter, oldCount, addC
         const after = data.data.after;
         const count = rawPosts.length;
         const dispatchObject = {
-            name: 'space',
+            name: name,
             posts: rawPosts,
             after: after,
             count, count

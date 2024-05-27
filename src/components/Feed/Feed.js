@@ -10,25 +10,26 @@ import { getFirstBestPosts, getNextBestPosts } from '../Api/redditBestEndpoint';
 
 function Feed() {
     const dispatch = useDispatch();
-    const currentSubreddit = 'space'; //TODO: make dynamic
+    const { subreddit } = useParams();
+    const currentSubreddit = subreddit ? subreddit : 'best';
     const allCards = useSelector(getCards(currentSubreddit));
     const accessToken = useSelector(getAccessToken);
     const after = useSelector(getAfter(currentSubreddit))
     const count = useSelector(getCount(currentSubreddit));
 
-    const { subreddit } = useParams();
+    
     console.log('Subreddit param: ' + subreddit);
 
     //useEffect hook that calls getFirstBestPosts to fetch posts from reddit if none are stored in state
     useEffect(() => {
         console.log('effect triggered');
         if(allCards.length === 0){
-            getFirstBestPosts(accessToken, dispatch, setCards);
+            getFirstBestPosts(accessToken, dispatch, setCards, currentSubreddit);
         }
     }, []);
 
     function handleGetNextPosts(){
-        getNextBestPosts(accessToken, dispatch, after, count, addCards);
+        getNextBestPosts(accessToken, dispatch, after, count, addCards, currentSubreddit);
     }
 
     // Get's the current filter from the URL and filteres the Cards to only show those whose type matches the string of the filter. Defaults to all cards if filter is empty.
