@@ -1,10 +1,11 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import styles from './Root.module.css';
 import pepe from './peeping-pepe.png';
 import { Outlet, Link, useNavigate } from 'react-router-dom';
 
 function Root() {
-
+    const dispatch = useDispatch();
     const navigate = useNavigate();
 
     function handleGoToSubreddit(){

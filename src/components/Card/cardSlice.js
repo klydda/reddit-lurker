@@ -9,22 +9,25 @@ const cardsSlice = createSlice({
     },
     reducers: {
         setCards: (state, action) => {
-            state.posts = action.payload;
+            const { name, posts, after, count } = action.payload;
+            state[name] = {
+                posts,
+                after,
+                count
+            };
+
         },
         addCards: (state, action) => {
-            state.posts.push(...action.payload);
-        },
-        setAfter: (state, action) => {
-            state.after = action.payload;
-        },
-        setCount: (state, action) => {
-            state.count += action.payload;
+            const { name, posts, after, count } = action.payload;
+            state[name].posts.push(...posts);
+            state[name].after = after;
+            state[name].count += count;
         }
     }
 })
 
-export const { setCards, addCards, setAfter, setCount } = cardsSlice.actions;
-export const getAllCards = (state) => state.cards.posts;
-export const getAfter = (state) => state.cards.after;
-export const getCount = (state) => state.cards.count;
+export const { setCards, addCards } = cardsSlice.actions;
+export const getCards = (currentSubreddit) => (state) => state.cards[currentSubreddit]?.posts || [];
+export const getAfter = (currentSubreddit) => (state) => state.cards[currentSubreddit]?.after || '';
+export const getCount = (currentSubreddit) => (state) => state.cards[currentSubreddit]?.count || 0;
 export default cardsSlice.reducer;

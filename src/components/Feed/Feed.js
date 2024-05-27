@@ -3,17 +3,18 @@ import Card from '../Card/Card';
 import styles from './Feed.module.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams, useSearchParams } from 'react-router-dom';
-import { setCards, addCards, setAfter, setCount, getAllCards, getAfter, getCount } from '../Card/cardSlice';
+import { setCards, addCards, getCards, getAfter, getCount} from '../Card/cardSlice';
 import { getAccessToken } from '../Api/apiSlice';
 
 import { getFirstBestPosts, getNextBestPosts } from '../Api/redditBestEndpoint';
 
 function Feed() {
     const dispatch = useDispatch();
-    const allCards = useSelector(getAllCards);
+    const currentSubreddit = 'space'; //TODO: make dynamic
+    const allCards = useSelector(getCards(currentSubreddit));
     const accessToken = useSelector(getAccessToken);
-    const count = useSelector(getCount);
-    const after = useSelector(getAfter);
+    const after = useSelector(getAfter(currentSubreddit))
+    const count = useSelector(getCount(currentSubreddit));
 
     const { subreddit } = useParams();
     console.log('Subreddit param: ' + subreddit);
@@ -22,12 +23,12 @@ function Feed() {
     useEffect(() => {
         console.log('effect triggered');
         if(allCards.length === 0){
-            getFirstBestPosts(accessToken, dispatch, setCards, setAfter, setCount);
+            getFirstBestPosts(accessToken, dispatch, setCards);
         }
     }, []);
 
     function handleGetNextPosts(){
-        getNextBestPosts(accessToken, dispatch, setAfter, setCount, after, count, addCards);
+        getNextBestPosts(accessToken, dispatch, after, count, addCards);
     }
 
     // Get's the current filter from the URL and filteres the Cards to only show those whose type matches the string of the filter. Defaults to all cards if filter is empty.
