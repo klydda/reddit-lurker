@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { getAccessToken } from '../Api/apiSlice';
 import { getSubredditNames } from '../Api/redditSearchEndpoint';
 
-function Search(){
+function Search({goToSub}){
     const [search, setSearch] = useState('');
     const [subreddits, setSubreddits] = useState([]);
     const accessToken = useSelector(getAccessToken);
@@ -31,21 +31,18 @@ function Search(){
         }
     }
 
-    function handleSubredditClick(event){
-        ///Call getSubreddit here
-        console.log('CLICK CLICK MOTEHRFUCKER');
-    }
-
     console.log('subreddits: ' + subreddits);
 
     function handleSubmit(event){
         event.preventDefault();
-        //Call getsubreddit here
+        console.log('SUBMIT: ' + search);
+        goToSub(search);
     }
     return(
     <div className={styles.search}>
         <form 
             className={styles.form}
+            id='searchForm'
             onSubmit={handleSubmit}>
             <input 
                 className={styles.input}
@@ -57,10 +54,17 @@ function Search(){
                 list='subreddits'
             />
 
+            <button 
+                classname={styles.formSubmit}
+                type='submit'
+                form='searchForm'
+                value='Submit'>Go
+            </button>
+
             <datalist id='subreddits'>
                 {subreddits.length !== 0 ? 
                     subreddits.map((sub) => {
-                        return <option value={sub.name} onClick={handleSubredditClick}></option>
+                        return <option value={sub.name}></option>
                      }) 
                      : 
                      null
@@ -73,7 +77,3 @@ function Search(){
 }
 
 export default Search;
-
-// subreddits.map((sub) => {
-//     return <option value={sub.name} onClick={handleSubredditClick}></option>
-// })

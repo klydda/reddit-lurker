@@ -23,6 +23,11 @@ function Root() {
         navigate(url.pathname + url.search);
     }
 
+    function goToSub(name){
+        console.log('CLICKED ON SUB');
+        navigate(`/r/${name}`);
+    }
+
     return (
         <>
             <header className={styles.header}>
@@ -31,14 +36,14 @@ function Root() {
                         <span className={styles.outerSpan}>Reddit</span> <span className={styles.innerSpan}>Lurker</span>
                 </Link>
                 
-                <Search />
+                <Search goToSub={goToSub} />
 
                 <div className={styles.filter}>
-                    <button onClick={() => handleFilterClick('image')}>Images</button>
-                    <button onClick={() => handleFilterClick('video')}>Videos</button>
-                    <button onClick={() => handleFilterClick('text')}>Text</button> 
-                    <button onClick={handleGoToSubreddit}>Space</button>
-                    <button onClick={handleGoToSubreddit}>Cats</button>
+                    <button onClick={() => handleFilterClick('image')} className={styles.filterButton}>Images</button>
+                    <button onClick={() => handleFilterClick('video')} className={styles.filterButton}>Videos</button>
+                    <button onClick={() => handleFilterClick('text')} className={styles.filterButton}>Text</button> 
+                    <button onClick={handleGoToSubreddit} className={styles.filterButton}>Space</button>
+                    <button onClick={handleGoToSubreddit} className={styles.filterButton}>Cats</button>
                 </div>
 
             </header>
