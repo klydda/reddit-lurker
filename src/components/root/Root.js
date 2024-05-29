@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import styles from './Root.module.css';
 import pepe from './peeping-pepe.png';
 import { Outlet, Link, useNavigate } from 'react-router-dom';
+
+import Search from '../Search/Search';
 
 function Root() {
     const dispatch = useDispatch();
@@ -29,16 +31,7 @@ function Root() {
                         <span className={styles.outerSpan}>Reddit</span> <span className={styles.innerSpan}>Lurker</span>
                 </Link>
                 
-                <div className={styles.search}>
-                    <form className={styles.form}>
-                        <input 
-                            className={styles.input}
-                            type='text' 
-                            autoComplete='off'
-                            placeholder='Search'
-                        />
-                    </form>
-                </div>
+                <Search />
 
                 <div className={styles.filter}>
                     <button onClick={() => handleFilterClick('image')}>Images</button>

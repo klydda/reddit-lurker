@@ -13,27 +13,6 @@
 
 }
 
-.search {
-    grid-area: search;
-    display: flex;
-    align-self: center;
-    align-items: center;
-    justify-content: center;
-}
-
-.form {
-    width: 75%;
-}
-
-.input {
-    border: none;
-    height: 2rem;
-    text-indent: 0.5rem;
-    width: 100%;
-    border-radius: 0.5rem;
-    background-color: #f9f9f9de;
-}
-
 a {
     color: black;
     text-decoration: none;
