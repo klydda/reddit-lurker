@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import styles from './Root.module.css';
 import pepe from './peeping-pepe.png';
 import { Outlet, Link, useNavigate } from 'react-router-dom';
+
+import Search from '../Search/Search';
 
 function Root() {
     const dispatch = useDispatch();
@@ -21,6 +23,11 @@ function Root() {
         navigate(url.pathname + url.search);
     }
 
+    function goToSub(name){
+        console.log('CLICKED ON SUB');
+        navigate(`/r/${name}`);
+    }
+
     return (
         <>
             <header className={styles.header}>
@@ -29,23 +36,14 @@ function Root() {
                         <span className={styles.outerSpan}>Reddit</span> <span className={styles.innerSpan}>Lurker</span>
                 </Link>
                 
-                <div className={styles.search}>
-                    <form className={styles.form}>
-                        <input 
-                            className={styles.input}
-                            type='text' 
-                            autoComplete='off'
-                            placeholder='Search'
-                        />
-                    </form>
-                </div>
+                <Search goToSub={goToSub} />
 
                 <div className={styles.filter}>
-                    <button onClick={() => handleFilterClick('image')}>Images</button>
-                    <button onClick={() => handleFilterClick('video')}>Videos</button>
-                    <button onClick={() => handleFilterClick('text')}>Text</button> 
-                    <button onClick={handleGoToSubreddit}>Space</button>
-                    <button onClick={handleGoToSubreddit}>Cats</button>
+                    <button onClick={() => handleFilterClick('image')} className={styles.filterButton}>Images</button>
+                    <button onClick={() => handleFilterClick('video')} className={styles.filterButton}>Videos</button>
+                    <button onClick={() => handleFilterClick('text')} className={styles.filterButton}>Text</button> 
+                    <button onClick={handleGoToSubreddit} className={styles.filterButton}>Space</button>
+                    <button onClick={handleGoToSubreddit} className={styles.filterButton}>Cats</button>
                 </div>
 
             </header>
