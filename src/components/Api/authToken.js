@@ -8,7 +8,7 @@ export function getToken(redditCode, dispatch, setAccessToken){
     const code = redditCode;
   
     // The exact redirect URI registered with the application
-    const redirectUri = 'http://localhost:3000/';
+    const redirectUri = 'https://redditlurker.netlify.app';
   
     // URL for the POST request
     const url = 'https://www.reddit.com/api/v1/access_token';
