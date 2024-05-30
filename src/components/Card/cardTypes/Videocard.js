@@ -56,7 +56,8 @@ function VideoCard({ card }){
             <span>{card.score}</span>
             <FontAwesomeIcon icon={faChevronDown} />
         </div>
-        <h2 className={styles.title}>{card.title}</h2>
+
+        <a href={'https://reddit.com' + card.permalink} target='_blank'><h2 className={styles.title}>{card.title}</h2></a>
 
         <div ref={divRef} className={styles.imageContainer}>
             <video ref={videoRef} className={broaderThanHigh ? '' : styles.dimensionHigh} controls loop>
@@ -66,7 +67,7 @@ function VideoCard({ card }){
 
         <div className={styles.comments}>
             <FontAwesomeIcon icon={faComment} />    
-            <span className={styles.smallSpace}>{card.num_comments}</span>
+            <a href={'https://reddit.com' + card.permalink} target='_blank'><span className={styles.smallSpace}>{card.num_comments}</span></a>
         </div>
 
         <div className={styles.poster}>

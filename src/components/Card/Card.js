@@ -7,7 +7,7 @@ import LinkCard from './cardTypes/LinkCard';
 
 
 function Card({ card }) {
-    // console.log(card);
+    console.log(card);
 
     if(card.selftext && card.post_hint !== 'image' && !card.is_gallery && !card.is_video){
         // console.log(card.title + ' | Textcard');
