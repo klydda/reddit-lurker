@@ -42,8 +42,6 @@ function Root() {
                     <button onClick={() => handleFilterClick('image')} className={styles.filterButton}>Images</button>
                     <button onClick={() => handleFilterClick('video')} className={styles.filterButton}>Videos</button>
                     <button onClick={() => handleFilterClick('text')} className={styles.filterButton}>Text</button> 
-                    <button onClick={handleGoToSubreddit} className={styles.filterButton}>Space</button>
-                    <button onClick={handleGoToSubreddit} className={styles.filterButton}>Cats</button>
                 </div>
 
             </header>
