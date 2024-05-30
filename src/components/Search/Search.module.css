@@ -16,10 +16,12 @@
     height: 2rem;
     text-indent: 0.5rem;
     width: 100%;
-    border-radius: 0.5rem;
+    border-radius: 0.5rem 0 0 0.5rem;
     background-color: #f9f9f9de;
 }
 
 .formSubmit {
-
+    border: none;
+    border-radius: 0 0.5rem 0.5rem 0;
+    background-color: #f9f9f9de;
 }

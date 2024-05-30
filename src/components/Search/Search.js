@@ -55,7 +55,7 @@ function Search({goToSub}){
             />
 
             <button 
-                classname={styles.formSubmit}
+                className={styles.formSubmit}
                 type='submit'
                 form='searchForm'
                 value='Submit'>Go
